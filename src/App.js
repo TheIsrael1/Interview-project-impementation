@@ -8,7 +8,7 @@ import ContentArea from './components/ContentArea';
 
 function App() {
 
-  const [sidebarToggled, setSidebarToggled] = useState(true)
+  const [sidebarToggled, setSidebarToggled] = useState(false)
 
   const toggleSidebar = () =>{
     setSidebarToggled(!sidebarToggled)
