@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
@@ -6,12 +7,29 @@ import { NotesViewProvider } from './context/NotesViewContext';
 import ContentArea from './components/ContentArea';
 
 function App() {
+
+  const [sidebarToggled, setSidebarToggled] = useState(true)
+
+  const toggleSidebar = () =>{
+    setSidebarToggled(!sidebarToggled)
+  }
   return (
-    <div className="container-fluid bg-light px-lg-5  py-3 main">
+    <div className={`container-fluid bg-light py-3 main  ${sidebarToggled ? `px-lg-2` : `px-lg-5`}`}>
       <NotesViewProvider>
-        <Header />
-        <DashboardControl />
+        <div className='row'>
+        <nav className={`col-2 ${!sidebarToggled && `d-none`}`}>
+          <div 
+          className='px-1 mt-3 h-100 rounded'
+          style={{backgroundColor: "#110C35"}}
+          >
+          </div>
+        </nav>
+        <main className={`${sidebarToggled ? `col-10` : `col-12`}`}>
+        <Header toggle={()=>toggleSidebar}/>
+        <DashboardControl/>
         <ContentArea />
+        </main>
+        </div>
     </NotesViewProvider>
     </div>
   );

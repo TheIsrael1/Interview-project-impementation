@@ -2,11 +2,11 @@ import menuIcon from '../images/menu.svg'
 import arrow from '../images/arrow.svg'
 import notification from '../images/notification.svg'
 import profile from '../images/prof.svg'
-const Header = () => {
+const Header = ({toggle}) => {
   return(
     <div className="d-flex justify-content-between py-2" >
         <div className='d-flex flex-lg-row align-items-lg-center flex-column'>
-            <div>
+            <div style={{cursor: "pointer"}} onClick={toggle()}>
                 <img src={menuIcon} alt="menu"/>
             </div>
             <div className="d-flex px-lg-4 align-items-center">
