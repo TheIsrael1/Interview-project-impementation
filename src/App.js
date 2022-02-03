@@ -7,7 +7,7 @@ import ContentArea from './components/ContentArea';
 
 function App() {
   return (
-    <div className="container-fluid bg-light px-5 py-3 main">
+    <div className="container-fluid bg-light px-lg-5  py-3 main">
       <NotesViewProvider>
         <Header />
         <DashboardControl />
